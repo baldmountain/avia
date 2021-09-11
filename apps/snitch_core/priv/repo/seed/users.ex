@@ -9,8 +9,8 @@ defmodule Snitch.Seed.Users do
 
   require Logger
 
-  @user_passwd Argon2.hashpwsalt("avenger")
-  @admin_passwd Argon2.hashpwsalt("wizard123")
+  @user_passwd Argon2.hash_pwd_salt("avenger")
+  @admin_passwd Argon2.hash_pwd_salt("wizard123")
 
   def seed_users! do
     admin_role = Repo.get_by!(Role, name: "admin")

@@ -4,7 +4,10 @@ defmodule AdminAppWeb.Endpoint do
 
   alias Snitch.Core.Tools.MultiTenancy
 
-  socket("/socket", AdminAppWeb.UserSocket)
+  socket "/socket", AdminAppWeb.UserSocket,
+    websocket: true # or list of options
+    # longpoll: [check_origin: ...]
+
 
   # Serve at "/" the static files from "priv/static" directory.
   #

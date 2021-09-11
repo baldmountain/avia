@@ -11,7 +11,7 @@ defmodule Snitch.Core.Mixfile do
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
-      elixir: "~> 1.7.2",
+      elixir: "~> 1.12.2",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -44,80 +44,83 @@ defmodule Snitch.Core.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:postgrex, "~> 0.13.5"},
-      {:ecto, "~> 2.2"},
-      {:bamboo, "~> 1.1"},
+      {:postgrex, "~> 0.15"},
+      {:ecto, "~> 3.6"},
+      {:bamboo, "~> 2.2"},
       {:combination, "~> 0.0.3"},
-      {:bamboo_smtp, "~> 1.6.0"},
-      {:bamboo_eex, "~> 0.1.0"},
-      {:ex_money, "~> 2.6.0"},
-      {:rummage_ecto, "~> 2.0.0-rc.0"},
-      {:credo, "~> 0.9.1", only: :dev, runtime: false},
-      {:credo_contrib, "~> 0.1.0-rc3", only: :dev, runtime: false},
-      {:as_nested_set, git: "https://github.com/SagarKarwande/as_nested_set.git"},
-      {:ecto_atom, "~> 1.0.0"},
-      {:ecto_identifier, "~> 0.1.0"},
-      {:ecto_autoslug_field, "~> 0.5"},
+      {:bamboo_smtp, "~> 4.1"},
+      {:bamboo_eex, github: "baldmountain/bamboo_eex"},
+      {:ex_money, "~> 5.5"},
+      {:rummage_ecto, "~> 2.0"},
+      {:credo, "~> 1.5", only: :dev, runtime: false},
+      {:credo_contrib, "~> 0.2", only: :dev, runtime: false},
+      {:as_nested_set, "~> 3.4"},
+      {:ecto_atom, github: "baldmountain/ecto_atom"},
+      {:ecto_identifier, "~> 0.2"},
+      {:ecto_autoslug_field, "~> 2.0"},
 
       # state machine
-      {:beepbop, github: "anantanant2015/beepbop", branch: "develop"},
+      {:beepbop, github: "baldmountain/beepbop", branch: "develop"},
 
       # time
-      {:timex, "~> 3.1"},
+      {:timex, "~> 3.7"},
 
       # auth
-      {:comeonin, "~> 4.1.1"},
-      {:argon2_elixir, "~> 1.2"},
+      {:comeonin, "~> 5.3"},
+      {:argon2_elixir, "~> 2.4"},
 
       # countries etc
       {:ex_region, github: "oyeb/ex_region", branch: "embed-json"},
 
       # docs and tests
-      {:ex_doc, "~> 0.16", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.8.2", only: :test},
-      {:mox, "~> 0.3", only: :test},
-      {:mock, "~> 0.3.0", only: :test},
-      {:ex_machina, "~> 2.2", only: :test},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:inch_ex, "~> 0.5.6", only: [:docs, :dev]},
+      {:ex_doc, "~> 0.25", only: :dev, runtime: false},
+      {:excoveralls, "~> 0.14", only: :test},
+      {:mox, "~> 1.0", only: :test},
+      {:mock, "~> 0.3.7", only: :test},
+      {:ex_machina, "~> 2.7", only: :test},
+      {:dialyxir, "~> 1.1", only: [:dev], runtime: false},
+      {:inch_ex, "~> 2.0", only: [:docs, :dev]},
 
       # csp
       {:aruspex, github: "oyeb/aruspex", branch: "tweaks"},
 
       # payments
-      {:snitch_payments, github: "aviacommerce/avia_payments", branch: "develop"},
+      # {:snitch_payments, github: "aviacommerce/avia_payments", branch: "develop"},
+      {:snitch_payments, github: "baldmountain/avia_payments", branch: "develop"},
+      # {:snitch_payments, path: "/Users/gclements/work/avia_payments", branch: "develop"},
 
       # image uploading
-      {:arc, "~> 0.10.0"},
-      {:arc_ecto, "~> 0.10.0"},
-      {:ex_aws, "~> 2.1"},
-      {:ex_aws_s3, "~> 2.0"},
-      {:hackney, "~> 1.9"},
-      {:sweet_xml, "~> 0.6"},
-      {:cowboy, "~> 1.0"},
-      {:plug, "~> 1.0"},
+      {:arc, "~> 0.11"},
+      # {:arc_ecto, "~> 0.11"},
+      {:arc_ecto, github: "baldmountain/arc_ecto"},
+      {:ex_aws, "~> 2.2"},
+      {:ex_aws_s3, "~> 2.3"},
+      {:hackney, "~> 1.17"},
+      {:sweet_xml, "~> 0.7"},
+      {:plug_cowboy, "~> 2.0"},
+      {:plug, "~> 1.12"},
 
       # unique id generator
-      {:nanoid, "~> 1.0.1"},
-      {:sentry, "~> 7.0"},
-      {:jason, "~> 1.1"},
-      {:nimble_csv, "~> 0.1.0"},
+      {:nanoid, "~> 2.0"},
+      {:sentry, "~> 8.0"},
+      {:jason, "~> 1.2"},
+      {:nimble_csv, "~> 1.1"},
 
       # Multi tenancy
-      {:triplex, github: "ramansah/triplex"},
-      {:mariaex, "~> 0.8.2"},
+      {:triplex, "~> 1.3"},
+      {:mariaex, "~> 0.9.1"},
 
       # xml
-      {:xml_builder, "~> 2.1", override: true},
+      {:xml_builder, "~> 2.2", override: true},
 
       # ecto_enum
-      {:ecto_enum, "~> 1.0"},
+      {:ecto_enum, "~> 1.4"},
 
       # Elastic search integration
-      {:elasticsearch, "~> 0.6.0"},
+      {:elasticsearch, "~> 1.0"},
 
       # Caching
-      {:cachex, "~> 3.1"}
+      {:cachex, "~> 3.4"}
     ]
   end
 

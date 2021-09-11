@@ -39,6 +39,7 @@ config :admin_app, AdminAppWeb.Mailer,
   api_key: System.get_env("SENDGRID_API_KEY")
 
 config :pdf_generator, wkhtml_path: System.get_env("WKHTML_PATH")
+config :phoenix, :json_library, Jason
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

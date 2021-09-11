@@ -4,7 +4,7 @@ defmodule Snitch.Mixfile do
   def project do
     [
       apps_path: "apps",
-      elixir: "~> 1.7.2",
+      elixir: "~> 1.12.2",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       test_coverage: [tool: ExCoveralls],
@@ -20,11 +20,11 @@ defmodule Snitch.Mixfile do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:jason, "~> 1.0"},
-      {:ex_doc, "~> 0.16", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.8", only: :test},
-      {:inch_ex, "~> 0.5.6", only: [:docs, :dev]},
-      {:distillery, "~> 2.0", runtime: false}
+      {:jason, "~> 1.2"},
+      {:ex_doc, "~> 0.25", only: :dev, runtime: false},
+      {:excoveralls, "~> 0.14", only: :test},
+      {:inch_ex, "~> 2.0", only: [:docs, :dev]},
+      {:distillery, "~> 2.1", runtime: false}
     ]
   end
 

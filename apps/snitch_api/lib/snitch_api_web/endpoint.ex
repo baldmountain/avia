@@ -4,7 +4,9 @@ defmodule SnitchApiWeb.Endpoint do
 
   alias Snitch.Core.Tools.MultiTenancy
 
-  socket("/socket", SnitchApiWeb.UserSocket)
+  socket "/socket", SnitchApiWeb.UserSocket,
+    websocket: true # or list of options
+    # longpoll: [check_origin: ...]
 
   # Serve at "/" the static files from "priv/static" directory.
   #

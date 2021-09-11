@@ -41,6 +41,8 @@ config :snitch_api, SnitchApi.Guardian,
 config :snitch_api, frontend_checkout_url: System.get_env("FRONTEND_CHECKOUT_URL")
 config :snitch_api, hosted_payment_url: System.get_env("HOSTED_PAYMENT_URL")
 
+config :phoenix, :json_library, Jason
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

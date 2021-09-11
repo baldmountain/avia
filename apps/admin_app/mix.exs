@@ -9,7 +9,7 @@ defmodule AdminApp.Mixfile do
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
-      elixir: "~> 1.7.2",
+      elixir: "~> 1.12.2",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -36,30 +36,34 @@ defmodule AdminApp.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.0"},
+      {:phoenix, "~> 1.4"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:phoenix_ecto, "~> 3.0"},
+      {:ecto_sql, "~> 3.0"},
+      {:phoenix_ecto, "~> 4.0"},
       {:gettext, "~> 0.11"},
-      {:csv, "~> 2.0.0"},
-      {:elixlsx, "~> 0.1.1"},
-      {:cowboy, "~> 1.0"},
+      {:csv, "~> 2.4"},
+      {:elixlsx, "~> 0.4"},
+      {:plug_cowboy, "~> 2.0"},
+      {:plug, "~> 1.12"},
       {:snitch_core, "~> 0.0.1", in_umbrella: true},
-      {:guardian, "~> 1.0"},
-      {:params, "~> 2.0"},
-      {:yaml_elixir, "~> 2.1.0"},
+      {:guardian, "~> 2.2"},
+      {:params, "~> 2.2"},
+      {:yaml_elixir, "~> 2.8"},
       # email
-      {:swoosh, "~> 0.15"},
-      {:phoenix_swoosh, "~> 0.2"},
-      {:gen_smtp, "~> 0.12"},
-      {:snitch_payments, github: "aviacommerce/avia_payments", branch: "develop"},
-      {:pdf_generator, ">=0.3.7"},
-      {:jason, "~> 1.1"},
+      {:swoosh, "~> 1.5"},
+      {:phoenix_swoosh, "~> 0.3"},
+      {:gen_smtp, "~> 1.1"},
+      # {:snitch_payments, github: "aviacommerce/avia_payments", branch: "develop"},
+      {:snitch_payments, github: "baldmountain/avia_payments", branch: "develop"},
+      # {:snitch_payments, path: "/Users/gclements/work/avia_payments", branch: "develop"},
+      {:pdf_generator, "~> 0.6"},
+      {:jason, "~> 1.2"},
 
       # import from store
       {:oauther, "~> 1.1"},
-      {:honeydew, "~> 1.2.6"}
+      {:honeydew, "~> 1.5"}
     ]
   end
 end
